@@ -30,6 +30,12 @@
                 //$('#locationLabel').innserHTML = "Captured";
             }
 
+            //function showPosition(position) {
+            //    var x = document.getElementById("locationLabel");
+            //    x.innerHTML = "Latitude: " + position.coords.latitude +
+            //    "<br/>Longitude: " + position.coords.longitude;
+            //}
+
             function hasGetUserMedia() {
                 return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
                           navigator.mozGetUserMedia || navigator.msGetUserMedia);
@@ -37,12 +43,12 @@
             
             $(document).ready(function () {
 
-                if (hasGetUserMedia()) {
-                    // Good to go!
-                } else {
-                    var x = document.getElementById("audioLabel");
-                    x.innerHTML = "Audio: not supported";
-                }
+                //if (hasGetUserMedia()) {
+                //    // Good to go!
+                //} else {
+                //    var x = document.getElementById("audioLabel");
+                //    x.innerHTML = "Audio: not supported";
+                //}
 
                 $("#location").click(function (event) {
                     getLocation();
@@ -63,10 +69,13 @@
 
         </script>
 
+
+
 @using (Html.BeginForm())
-{
-    <label id="locationLabel" for="location"></label>
-    <input id="location" type="button" value="Location" />
+{        
+    <label id="locationLabel" for="location">Location</label>
+<input id="location" type="button" value="Location" />
+    
     <input id="lat" name="lat" type="hidden" value="" />
     <input id="lon" name="lon" type="hidden" value="" />
 

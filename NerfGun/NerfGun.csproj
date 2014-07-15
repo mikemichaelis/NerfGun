@@ -263,8 +263,10 @@
       <LastGenOutput>NerfGunModel.cs</LastGenOutput>
     </Content>
     <None Include="Properties\PublishProfiles\nerfgun999 - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\nerfgun999 - FTP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\nerfgun999 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\nerfgun999 - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\nerfgun999 - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\nerfgun999 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
