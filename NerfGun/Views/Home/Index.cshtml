@@ -7,8 +7,8 @@
     Complete the following fields and click submit
 </p>*@
 
-<script src="Scripts/recorderjs/recorder.js"></script>
-<script src="Scripts/main.js"></script>
+@*<script src="Scripts/recorderjs/recorder.js"></script>
+<script src="Scripts/main.js"></script>*@
 
 <script>
             
@@ -22,8 +22,12 @@
             }
             function showPosition(position) {
                 var x = document.getElementById("locationLabel");
-                x.innerHTML = "Latitude: " + position.coords.latitude +
-                "<br/>Longitude: " + position.coords.longitude;
+                x.innerHTML = "Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude;
+
+                $('#lat').val(position.coords.latitude);
+                $('#lon').val(position.coords.longitude);
+
+                //$('#locationLabel').innserHTML = "Captured";
             }
 
             function hasGetUserMedia() {
@@ -44,11 +48,11 @@
                     getLocation();
                 });
 
-                $("#audio").click(function (event) {
-                    toggleRecording(this);
-                });
+                //$("#audio").click(function (event) {
+                //    toggleRecording(this);
+                //});
 
-                initAudio();
+                //initAudio();
             });
 
             var errorCallback = function (e) {
@@ -59,12 +63,48 @@
 
         </script>
 
-<ul data-role="listview" data-inset="true">
-   @* <li data-role="list-divider">Navigation</li>
-    <li>@Html.ActionLink("About", "About", "Home")</li>
-    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+@using (Html.BeginForm())
+{
+    <label id="locationLabel" for="location"></label>
+    <input id="location" type="button" value="Location" />
+    <input id="lat" name="lat" type="hidden" value="" />
+    <input id="lon" name="lon" type="hidden" value="" />
 
-    <li id="location"><span id="locationLabel">Location</span></li>
-    <li id="audio"><span id="audioLabel">Record Audio Note</span></li>
+    <fieldset data-role="controlgroup">
+	    <legend>Party Association:</legend>
+     	    <input type="radio" name="party" id="radio-choice-2" value="Republican"  />
+     	    <label for="radio-choice-2">Republican</label>
 
-</ul>
+     	    <input type="radio" name="party" id="radio-choice-3" value="Democrat"  />
+     	    <label for="radio-choice-3">Democrat</label>
+
+     	    <input type="radio" name="party" id="radio-choice-4" value="Independent"  />
+     	    <label for="radio-choice-4">Independent</label>
+    </fieldset>
+
+    <label for="strength">Strengty of Party Association</label>
+    <input type="range" name="strength" id="strength" value="" min="1" max="10" />
+    
+    <label for="happy">Happy with Party</label>
+    <input type="range" name="happy" id="happy" value="" min="1" max="10" />
+    
+    <label for="political">How Political in General</label>
+    <input type="range" name="political" id="political" value="" min="1" max="10" />
+    
+    <label for="opinionated">Opinionated</label>
+    <input type="range" name="opinionated" id="opinionated" value="" min="1" max="10" />    
+
+    <label for="votes">Votes</label>
+    <input type="range" name="votes" id="votes" value="" min="1" max="10" />
+    
+    <label for="friendly">Friendly</label>
+    <input type="range" name="friendly" id="friendly" value="" min="1" max="10" />
+    
+    <label for="talk">Willing to Talk</label>
+    <input type="range" name="talk" id="talk" value="" min="1" max="10" />        
+    
+    <label for="note">Notes:</label>
+    <textarea name="note" id="note"></textarea>
+   
+    <input type="submit" value="Submit" />
+}
